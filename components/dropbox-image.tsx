@@ -4,6 +4,7 @@ import { IconButton, Spinner } from "@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
 import { deleteFile } from "actions/storageActions";
 import { queryClient } from "config/ReactQueryClientProvider";
+import { formatDate } from "utils/formatDate";
 import { getImageUrl } from "utils/supabase/storage";
 
 export default function DropboxImage({ image }) {
@@ -26,6 +27,9 @@ export default function DropboxImage({ image }) {
 
       {/* FileName */}
       <div className="">{image.name}</div>
+
+      {/* Updated_at */}
+      <div>{formatDate(image.updated_at)}</div>
 
       <div className="absolute top-4 right-4">
         <IconButton
